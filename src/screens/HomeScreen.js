@@ -1,6 +1,8 @@
 import React from "react";
+import { Dimensions } from "react-native";
 import styled from "styled-components";
 import { FontAwesome5, MaterialIcons, AntDesign } from "@expo/vector-icons";
+import { LineChart } from "react-native-chart-kit";
 
 import Text from "../components/Text";
 import purchaseData from "../../purchases";
@@ -32,6 +34,37 @@ export default HomeScreen = () => {
       <Text center heavy color="#727479">
         Saldo atual
       </Text>
+
+      <Chart>
+        <LineChart data={{
+          label: ["Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro"],
+          datasets: [
+            {
+              data: [
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10,
+                Math.random() * 10
+              ],
+            },
+          ],
+          
+        }}
+        width={Dimensions.get("window").width}
+        height={250}
+        chartConfig={{
+          backgroundGradientFrom: "#1e1e1e",
+          backgroundGradientTo: "#1e1e1e",
+          color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
+          labelColor: () => `rgba(255, 255, 255, 0.2)`,
+          strokeWidth: 3,
+        }}
+
+        />
+      </Chart>
+
       <Purchases ListHeaderComponent={
         <>
           <TransactionsHeader>
@@ -74,6 +107,10 @@ const Welcome = styled.View`
   flex: 1;
   padding: 0 16px;
 
+`;
+
+const Chart = styled.View`
+  margin: 32px 0;
 `;
 
 const Purchases = styled.FlatList`
