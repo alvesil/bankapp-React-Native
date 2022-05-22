@@ -4,11 +4,11 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialIcons } from "@expo/vector-icons";
 
+import HomeScreen from "./src/screens/HomeScreen";
 import TouchScreen from "./src/screens/TouchScreen";
 import PinScreen from "./src/screens/PinScreen";
-import HomeScreen from "./src/screens/HomeScreen";
 import SendRequestScreen from "./src/screens/SendRequestScreen";
-import CardsScreen from "./src/screens/CardScreen";
+import CardsScreen from "./src/screens/CardsScreen";
 
 export default function App() {
   const AppStack = createStackNavigator();
@@ -46,7 +46,7 @@ export default function App() {
   const TabStackScreens = () => {
     return (
       <TabStack.Navigator tabBarsOptions={tabBarsOptions} screenOptions={screenOptions}>
-        <TabStack.Screen name="Home" component={HomeScreen} />
+        <TabStack.Screen name="Home" component={ HomeScreen } />
         <TabStack.Screen 
           name="SendRequest" 
           component={SendRequestScreen} 
@@ -59,7 +59,7 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator haderMode="none">
+      <AppStack.Navigator headerShown="false">
         <AppStack.Screen name="Touch" component={TouchScreen} />
         <AppStack.Screen name="Pin" component={PinScreen} />
         <AppStack.Screen name="Tabs" component={TabStackScreens} />
