@@ -17,8 +17,8 @@ export default function App() {
   const tabBarsOptions = {
     showLabel: true,
     style: {
-      backgroundColor: "1e1e1e",
-      borderTopColor: "1e1e1e",
+      backgroundColor: "#1e1e1e",
+      borderTopColor: "#1e1e1e",
       paddingBottom: 32,
     }
   };
@@ -34,7 +34,7 @@ export default function App() {
           icon = "credit-card";
           break;
         case "SendRequest":
-          icon = "send";
+          icon = "attach-money";
           break;
         default:
           icon = "dashboard";
@@ -46,20 +46,20 @@ export default function App() {
   const TabStackScreens = () => {
     return (
       <TabStack.Navigator tabBarsOptions={tabBarsOptions} screenOptions={screenOptions}>
-        <TabStack.Screen name="Home" component={ HomeScreen } />
+        <TabStack.Screen name="Home" component={ HomeScreen } options={{ headerShown: false, title: "Saldo e Extrato" }} />
         <TabStack.Screen 
           name="SendRequest" 
           component={SendRequestScreen} 
-          options={{title: "Enviar & Receber"}}
+          options={{headerShown: false, title: "Transferências"}}
         />
-        <TabStack.Screen name="Cards" component={CardsScreen} options={{ title: "Meus Cartões"}} />
+        <TabStack.Screen name="Cards" component={CardsScreen} options={{ headerShown: false, title: "Cartões"}} />
       </TabStack.Navigator>
     )
   }
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator headerShown="false">
+      <AppStack.Navigator screenOptions={{headerShown: false}}>
         <AppStack.Screen name="Touch" component={TouchScreen} />
         <AppStack.Screen name="Pin" component={PinScreen} />
         <AppStack.Screen name="Tabs" component={TabStackScreens} />

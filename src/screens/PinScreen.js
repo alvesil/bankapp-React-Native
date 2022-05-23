@@ -40,9 +40,7 @@ export default PinScreen = ({ navigation }) => {
 
     return (
         <Container>
-            <Text center heavy title color="#964ff0" margin="32px 0 0 0">
-                mybank
-            </Text>
+            <BankLogo source={require("../../assets/banklogo.png")} />
             <Text center heavy medium margin="32px 0 0 0">
                 Digite seu PIN
             </Text>
@@ -66,6 +64,14 @@ export default PinScreen = ({ navigation }) => {
         </Container>
     );
 }
+
+const BankLogo = styled.Image`
+  margin-top: 50px;
+  width: 180px;
+  height: 100px;
+  margin-left: 90px;
+`;
+
 
 const Container = styled.View`
     flex: 1;

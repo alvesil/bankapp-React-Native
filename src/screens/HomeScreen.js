@@ -8,7 +8,7 @@ import Text from "../components/Text";
 import purchaseData from "../../purchases";
 
 export default HomeScreen = () => {
-  const renderPurchase = ({item}) => (
+  const renderPurchase = ({ item }) => (
     <Purchase>
       <PurchaseInfo>
         <Text heavy >{item.product}</Text>
@@ -19,12 +19,13 @@ export default HomeScreen = () => {
     </Purchase>
   );
   return (
-    <Container>
+
+    <Container nestedScrollEnabed>
       <Header>
-        <ProfilePhoto source={require("../../assets/favicon.png")} />
+        <ProfilePhoto source={require("../../assets/mussum.webp")} />
         <Welcome>
-          <Text heavy medium>Welcome, </Text>
-          <Text>DesignIntoCode</Text>
+          <Text heavy medium>Bem-vindo, </Text>
+          <Text>Mussum</Text>
         </Welcome>
         <FontAwesome5 name="cog" size={24} color="#565656" />
       </Header>
@@ -37,7 +38,7 @@ export default HomeScreen = () => {
 
       <Chart>
         <LineChart data={{
-          label: ["Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro"],
+          labels: ["Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro"],
           datasets: [
             {
               data: [
@@ -50,18 +51,22 @@ export default HomeScreen = () => {
               ],
             },
           ],
-          
-        }}
-        width={Dimensions.get("window").width}
-        height={250}
-        chartConfig={{
-          backgroundGradientFrom: "#1e1e1e",
-          backgroundGradientTo: "#1e1e1e",
-          color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
-          labelColor: () => `rgba(255, 255, 255, 0.2)`,
-          strokeWidth: 3,
-        }}
 
+        }}
+          width={Dimensions.get("window").width}
+          height={250}
+          yAxisLabel="R$"
+          yAxisSuffix="k"
+          chartConfig={{
+            backgroundGradientFrom: "#1e1e1e",
+            backgroundGradientTo: "#1e1e1e",
+            color: (opacity = 1) => `rgba(81, 150, 244, ${opacity})`,
+            labelColor: () => `rgba(255, 255, 255, 0.2)`,
+            strokeWidth: 3,
+          }}
+          withVerticalLines={false}
+          withHorizontalLines={false}
+          bezier
         />
       </Chart>
 
@@ -76,13 +81,14 @@ export default HomeScreen = () => {
             <Search placeholder="Pesquisar transações" />
           </SearchContainer>
         </>
-      } 
+      }
 
-      data={purchaseData} renderItem={renderPurchase} showVerticalScrollIndicator={false}
-      
+        data={purchaseData} renderItem={renderPurchase} showVerticalScrollIndicator={false}
+
       />
       <StatusBar barStyle="light-content" />
     </Container>
+
   );
 };
 
