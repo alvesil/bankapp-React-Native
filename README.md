@@ -24,3 +24,7 @@ Obs: Execute os comandos citados abaixo sem as aspas duplas.
         9.4.1 - Baixe na app store o aplicativo Expo Go https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR&gl=US .
         9.4.2 - Feito o passo (6 - Execute o expo com o comando expo start), caso não apareça o QR code no próprio terminal aperte a tecla "w" para abrir o Metro em seu navegador. Abra o app Expo Go em seu smartphone e use o scaner de QR code para ler o QR code do terminal ou do Metro em seu navegador na porta padrão 19002. -> localhost:19002.
 10 - Fim.
+
+Extra: É possível gerar o arquivo .apk do projeto, caso tenha uma conta na Expo -> https://expo.dev/
+
+Basta acessar a pasta do projeto e executar o comando "eas build -p android --profile preview". Será necessário efetuar o login com suas credenciais da Expo e após isso irá gerar um link para acompanhar o processo de build do apk, após isso é possível baixar o arquivo.
